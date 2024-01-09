@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { v4 as uuidV4 } from 'uuid';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import randomNumber from 'random-number';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -10,7 +10,7 @@ const Home = () => {
     const [username, setUsername] = useState('');
     const createNewRoom = (e) => {
         e.preventDefault();
-        const id = uuidV4();
+        const id = Math.floor(randomNumber({ min: 1000, max: 9999 }));
         setRoomId(id);
         toast.success('Created a new room');
     };
